@@ -1,16 +1,349 @@
-## Hi there 👋
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DigitalRecon — Servicios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#06070a;
+      --card:#0b1116;
+      --muted:#9aa4b2;
+      --accent:#06b6d4;
+      --accent-2:#22c55e;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:920px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Poppins,system-ui,Arial;background:radial-gradient( circle at 10% 10%, rgba(6,182,212,0.04), transparent 20% ), linear-gradient(180deg,#03040a 0%, #07090f 100%);color:#e6eef6; -webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:28px}
 
-<!--
-**Digitalrecon/digitalrecon** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:80px;height:80px;border-radius:16px;background:linear-gradient(135deg,#0ea5a4,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800;color:#021516;font-size:26px;box-shadow:0 12px 40px rgba(6,182,212,0.08)}
+    .title h1{margin:0;font-size:26px;letter-spacing:0.6px}
+    .lead{margin:6px 0 0;color:var(--muted);font-size:14px}
 
-Here are some ideas to get you started:
+    .hero{margin-top:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:18px;align-items:center}
+    .hero-left{flex:1}
+    .type{color:var(--accent);font-weight:700}
+    .type.small{font-size:14px;color:var(--muted);font-weight:600}
+    .cta-row{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#022229;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+    .content{display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:18px}
+    @media(max-width:980px){.content{grid-template-columns:1fr}}
+
+    .catalog{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .section{margin-bottom:12px}
+    .section h2{margin:8px 0 12px;font-size:18px}
+    .svc{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02);margin-bottom:10px;cursor:pointer;transform:translateY(0);transition:transform .25s ease, box-shadow .25s ease}
+    .svc:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(2,6,10,0.6)}
+    .svc .dot{width:12px;height:12px;border-radius:50%;background:var(--accent)}
+    .svc .info{flex:1}
+    .svc .info .title{font-weight:700}
+    .svc .info .desc{font-size:13px;color:var(--muted);margin-top:6px}
+    .svc .price{font-weight:800;color:#fff;background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px}
+
+    /* sidebar */
+    .side{position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);height:100%}
+    .card-stat{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);margin-bottom:10px}
+    .stat{display:flex;flex-direction:column}
+    .stat .num{font-weight:800;font-size:18px;color:var(--accent)}
+    .stat .label{font-size:12px;color:var(--muted)}
+
+    .form{margin-top:12px}
+    .form input, .form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef6;margin-bottom:10px}
+    .form button{width:100%;padding:10px;border-radius:10px;background:var(--accent);color:#022229;border:none;font-weight:700}
+
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* typewriter caret */
+    .typing{display:inline-block;border-right:2px solid var(--accent);padding-right:4px}
+
+    /* small animation utilities */
+    .fade-up{opacity:0;transform:translateY(10px);transition:all .6s cubic-bezier(.2,.8,.2,1)}
+    .in-view{opacity:1;transform:none}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">DR</div>
+      <div class="title">
+        <h1>DigitalRecon</h1>
+        <div class="lead">Conecta con tu web. Protege tu marca. Webs, OSINT y analítica profesional.</div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-left">
+        <div class="type small">Servicios & Soluciones</div>
+        <h2 style="margin:6px 0 0">Expertos en <span class="typing" id="typeword">Desarrollo Web</span></h2>
+        <p style="color:var(--muted);margin-top:8px">Transformamos datos en decisiones y presencia online que vende. Selecciona un servicio y te conectamos por WhatsApp al instante.</p>
+
+        <div class="cta-row">
+          <button class="btn" id="contactAll">📲 Contactar por WhatsApp</button>
+          <a class="btn ghost" href="#form">✉️ Enviar mensaje</a>
+        </div>
+      </div>
+      <div style="width:220px;text-align:center">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><rect rx='20' width='100%' height='100%' fill='%2306b6d4'/><text x='50%' y='52%' font-size='56' font-family='Poppins, Arial' font-weight='800' text-anchor='middle' fill='%23021414'>DR</text></svg>" alt="logo" style="width:120px;height:120px;border-radius:14px;box-shadow:0 18px 50px rgba(2,6,10,0.6)" />
+      </div>
+    </div>
+
+    <div class="content">
+      <main>
+        <section class="catalog fade-up" id="catalog">
+
+          <!-- Diseño y Desarrollo -->
+          <div class="section">
+            <h2>🌐 Diseño y Desarrollo Web</h2>
+            <div class="svc" data-msg="Landing Page profesional - $150" data-price="$150">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Landing Page profesional</div><div class="desc">One-page optimizada para conversiones y campaña</div></div>
+              <div class="price">$150</div>
+            </div>
+
+            <div class="svc" data-msg="Sitio corporativo (hasta 5 páginas) - $450" data-price="$450">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Sitio corporativo (hasta 5 páginas)</div><div class="desc">WordPress, responsive y SEO básico</div></div>
+              <div class="price">$450</div>
+            </div>
+
+            <div class="svc" data-msg="E-commerce básico (hasta 20 productos) - $650" data-price="$650">
+              <div class="dot"></div>
+              <div class="info"><div class="title">E‑commerce básico</div><div class="desc">WooCommerce, carrito y pasarela</div></div>
+              <div class="price">$650</div>
+            </div>
+
+            <div class="svc" data-msg="E-commerce avanzado - $1200" data-price="$1200">
+              <div class="dot"></div>
+              <div class="info"><div class="title">E‑commerce avanzado</div><div class="desc">Automatizaciones y pagos internacionales</div></div>
+              <div class="price">$1,200</div>
+            </div>
+
+          </div>
+
+          <!-- Analitica -->
+          <div class="section fade-up">
+            <h2>📊 Analítica & Tracking</h2>
+
+            <div class="svc" data-msg="Implementación GTM - $200" data-price="$200">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Implementación GTM</div><div class="desc">Etiquetas, eventos y conversiones</div></div>
+              <div class="price">$200</div>
+            </div>
+
+            <div class="svc" data-msg="Configuración GA4 - $180" data-price="$180">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Configuración GA4</div><div class="desc">Medición avanzada y reportes iniciales</div></div>
+              <div class="price">$180</div>
+            </div>
+
+            <div class="svc" data-msg="Dashboards Looker Studio - $400" data-price="$400">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Dashboards (Looker Studio)</div><div class="desc">Visualizaciones y reportes accionables</div></div>
+              <div class="price">$400</div>
+            </div>
+
+          </div>
+
+          <!-- OSINT -->
+          <div class="section fade-up">
+            <h2>🔍 OSINT & Ciberinteligencia</h2>
+
+            <div class="svc" data-msg="OSINT básico - $120" data-price="$120">
+              <div class="dot"></div>
+              <div class="info"><div class="title">OSINT básico</div><div class="desc">Búsqueda de información pública y perfiles</div></div>
+              <div class="price">$120</div>
+            </div>
+
+            <div class="svc" data-msg="OSINT avanzado - $350" data-price="$350">
+              <div class="dot"></div>
+              <div class="info"><div class="title">OSINT avanzado</div><div class="desc">Investigación profunda y reporte documentado</div></div>
+              <div class="price">$350</div>
+            </div>
+
+            <div class="svc" data-msg="Monitoreo de reputación - $150/mes" data-price="$150/mes">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Monitoreo de reputación</div><div class="desc">Alertas y reportes periódicos</div></div>
+              <div class="price">$150/mes</div>
+            </div>
+
+          </div>
+
+          <!-- Ciberseguridad & Soporte -->
+          <div class="section fade-up">
+            <h2>🔐 Ciberseguridad & Soporte</h2>
+
+            <div class="svc" data-msg="Auditoría web - $400" data-price="$400">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Auditoría web</div><div class="desc">Análisis de vulnerabilidades y recomendaciones</div></div>
+              <div class="price">$400</div>
+            </div>
+
+            <div class="svc" data-msg="Soporte técnico (1h) - $30" data-price="$30">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Soporte técnico (1h)</div><div class="desc">Correcciones y actualizaciones remotas</div></div>
+              <div class="price">$30</div>
+            </div>
+
+            <div class="svc" data-msg="Mantenimiento mensual - $90/mes" data-price="$90/mes">
+              <div class="dot"></div>
+              <div class="info"><div class="title">Mantenimiento mensual</div><div class="desc">Backups, actualizaciones y monitorización</div></div>
+              <div class="price">$90/mes</div>
+            </div>
+
+          </div>
+
+        </section>
+      </main>
+
+      <aside class="side fade-up">
+        <div class="card-stat">
+          <div class="stat"><div class="num" data-target="120">0</div><div class="label">Clientes felices</div></div>
+          <div class="stat"><div class="num" data-target="340">0</div><div class="label">Proyectos</div></div>
+        </div>
+
+        <div class="card-stat">
+          <div class="stat"><div class="num" data-target="3">0</div><div class="label">Años de experiencia</div></div>
+          <div style="text-align:right;color:var(--muted);font-size:12px">DigitalRecon</div>
+        </div>
+
+        <div style="margin-top:10px">
+          <h3 style="margin:0 0 8px">Contacto rápido</h3>
+          <div style="color:var(--muted);font-size:13px;margin-bottom:8px">También puedes usar el formulario si prefieres escribir aquí.</div>
+
+          <form id="contactForm" class="form" onsubmit="return handleForm(event)">
+            <input type="text" id="name" placeholder="Tu nombre" required />
+            <input type="email" id="email" placeholder="Tu email" />
+            <textarea id="message" placeholder="Mensaje (servicio, detalle)" rows="3"></textarea>
+            <button type="submit">✉️ Enviar por email / WhatsApp</button>
+          </form>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Redes: <br>Telegram: @DigitalRecon<br>WhatsApp: +51 932 403 532</div>
+      </aside>
+
+    </div>
+
+    <footer>
+      © DigitalRecon • Ciberinteligencia & Diseño Web — Hecho con precisión
+    </footer>
+  </div>
+
+  <script>
+    // ====== CONFIG ======
+    const WA_NUMBER = '51932403532'; // <-- tu número sin + ni espacios
+    // Frases para typewriter
+    const phrases = [
+      'Desarrollo Web',
+      'Analítica Digital',
+      'OSINT Profesional',
+      'Ciberseguridad Avanzada',
+      'Protegemos tu marca',
+      'Optimiza tus datos',
+      'Investigación digital precisa',
+      'Tu éxito, nuestra misión'
+    ];
+
+    // ====== Typewriter simple (loop) ======
+    (function typeLoop(){
+      const el = document.getElementById('typeword');
+      let pi = 0, ci = 0, forward = true;
+      function step(){
+        const cur = phrases[pi];
+        if(forward){
+          ci++;
+          el.textContent = cur.slice(0,ci);
+          if(ci === cur.length){ forward=false; setTimeout(step,900); return; }
+        } else {
+          ci--;
+          el.textContent = cur.slice(0,ci);
+          if(ci===0){ forward=true; pi=(pi+1)%phrases.length; }
+        }
+        setTimeout(step, forward?60:30);
+      }
+      step();
+    })();
+
+    // ====== scroll reveal ======
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+    // ====== Counters ======
+    function animateCounters(){
+      document.querySelectorAll('.num').forEach(n=>{
+        const target = +n.getAttribute('data-target');
+        let start = 0; const dur = 1400; const step = Math.ceil(target/ (dur/16));
+        const iv = setInterval(()=>{
+          start += step;
+          if(start>=target){ n.textContent = target; clearInterval(iv);} else n.textContent = start;
+        },16);
+      });
+    }
+    // start when sidebar in view
+    const side = document.querySelector('.side');
+    const io2 = new IntersectionObserver(entries=>{ if(entries[0].isIntersecting) { animateCounters(); io2.disconnect(); } },{threshold:0.2});
+    io2.observe(side);
+
+    // ====== Service clicks -> WhatsApp ======
+    document.querySelectorAll('.svc').forEach(svc=>{
+      svc.addEventListener('click',()=>{
+        const msg = svc.getAttribute('data-msg') || svc.querySelector('.title')?.innerText;
+        const text = encodeURIComponent(`Hola, quiero más información sobre: ${msg}`);
+        const url = `https://wa.me/${WA_NUMBER}?text=${text}`;
+        window.open(url,'_blank');
+      });
+    });
+
+    // ====== Contact all button ======
+    document.getElementById('contactAll').addEventListener('click',()=>{
+      const text = encodeURIComponent('Hola, estoy interesado en servicios de DigitalRecon. ¿Podrían enviarme detalles y cotización?');
+      const url = `https://wa.me/${WA_NUMBER}?text=${text}`;
+      window.open(url,'_blank');
+    });
+
+    // ====== Form handling: opens mailto + fallback to whatsapp ======
+    function handleForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value || 'Contacto';
+      const email = document.getElementById('email').value || '';
+      const msg = document.getElementById('message').value || 'Consulta';
+
+      // Mailto (abre cliente de correo del usuario)
+      const subject = encodeURIComponent(`Contacto desde DigitalRecon: ${name}`);
+      const body = encodeURIComponent(`Nombre: ${name}%0AEmail: ${email}%0AMensaje: ${msg}`);
+      const mailto = `mailto:tu@correo.com?subject=${subject}&body=${body}`; // <-- reemplaza 'tu@correo.com' por tu email real
+
+      // Además abrimos WhatsApp como opción alternativa
+      const waText = encodeURIComponent(`Hola, soy ${name}. ${msg} (Email: ${email})`);
+      const waUrl = `https://wa.me/${WA_NUMBER}?text=${waText}`;
+
+      // Try opening mailto first, then whatsapp
+      window.location.href = mailto;
+      setTimeout(()=>{ window.open(waUrl,'_blank'); },700);
+
+      // Reset form
+      e.target.reset();
+      return false;
+    }
+
+    // ====== small attention animation for whatsapp button ======
+    setInterval(()=>{
+      const b = document.getElementById('contactAll');
+      b.animate([{transform:'translateY(0)'},{transform:'translateY(-6px)'},{transform:'translateY(0)'}],{duration:900,iterations:1});
+    },5000);
+
+  </script>
+</body>
+</html>
+
