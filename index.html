@@ -68,6 +68,37 @@
     /* small animation utilities */
     .fade-up{opacity:0;transform:translateY(10px);transition:all .6s cubic-bezier(.2,.8,.2,1)}
     .in-view{opacity:1;transform:none}
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Teléfonos */
+@media (max-width: 600px) {
+  .logo img {
+    width: 150px; /* más pequeño en móviles */
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .logo img {
+    width: 200px;
+  }
+}
+
+/* PC */
+@media (min-width: 1025px) {
+  .logo img {
+    width: 220px;
+  }
+}
+
 
   </style>
 </head>
